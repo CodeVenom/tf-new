@@ -1,0 +1,17 @@
+context:
+  module: {}
+  set:
+    comment: say something
+    foo: bar
+    s3_submodule_version: v1
+  extra:
+    account:
+      primary_dev:
+        comment: hello there
+        foo: something
+        s3_submodule_version: v2
+    env:
+      dev:
+        comment: this is the dev env
+      prod:
+        foo: prod

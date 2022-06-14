@@ -1,9 +1,0 @@
-context:
-  module:
-    # TODO: default could be directory name?
-    name: chair
-    # TODO: backend.tf.j2 could be default
-    backend_template: backend.tf.j2
-    # TODO: all is default, predefined groups can be referenced (none => contains nothing)
-    group: all
-    region: eu-central-1

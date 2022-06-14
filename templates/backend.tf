@@ -9,22 +9,20 @@ terraform {
   }
 
   backend "s3" {
-    # TODO: add more variables later on
     bucket         = "jjb-tf"
     dynamodb_table = "jjb-tf-lock"
     key            = "playground/{{ values.context.account.name }}-{{ values.context.module.name }}.tfstate"
-    region         = "eu-central-1"
+    region         = "{{ values.context.account.region }}"
     role_arn       = "{{ values.context.account.role_arn }}"
   }
 }
 
 provider "aws" {
-  region  = "{{ values.context.module.region }}"
+  region  = "{{ values.context.account.region }}"
 
   assume_role {
     role_arn     = "{{ values.context.account.role_arn }}"
-    # TODO: maybe omit the rest here?
-    session_name = "SESSION_NAME"
-    external_id  = "EXTERNAL_ID"
+#    session_name = "SESSION_NAME"
+#    external_id  = "EXTERNAL_ID"
   }
 }
